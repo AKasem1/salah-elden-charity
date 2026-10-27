@@ -108,11 +108,11 @@ export function Footer() {
 
 function ContactItem({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
   return (
-    <div className="flex gap-4">
+    <div className="flex min-w-0 gap-4">
       <span className="grid size-11 shrink-0 place-items-center rounded-full bg-brand/15 text-brand">{icon}</span>
-      <div>
+      <div className="min-w-0">
         <p className="text-xs text-white/45">{label}</p>
-        <div className="mt-1 text-sm leading-7 text-white/85">{children}</div>
+        <div className="mt-1 text-sm leading-7 break-words text-white/85">{children}</div>
       </div>
     </div>
   );

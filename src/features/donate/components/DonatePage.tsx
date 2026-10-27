@@ -10,7 +10,7 @@ import { DonateForm } from "./DonateForm";
 export function DonatePage() {
   return (
     <main className="mx-auto max-w-7xl px-4 pt-28 md:px-6 md:pt-36">
-      <div className="grid gap-8 lg:grid-cols-[1fr_1.35fr] lg:gap-12">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.35fr] lg:gap-12">
         <aside className="lg:sticky lg:top-32 lg:self-start">
           <Reveal>
             <Eyebrow>تبرع معنا</Eyebrow>

@@ -41,7 +41,7 @@ export function JoinUs() {
           <div className="w-full max-w-sm rounded-[2rem] bg-white/95 p-6 backdrop-blur-xl">
             <Eyebrow>ابقَ على تواصل</Eyebrow>
             <p className="mt-4 font-display text-xl leading-snug font-semibold">تابع قصص الأثر لحظة بلحظة</p>
-            <Stagger as="ul" className="mt-5 grid gap-2" stagger={0.08}>
+            <Stagger as="ul" className="mt-5 grid grid-cols-1 gap-2" stagger={0.08}>
               {socialItems.map(({ label, handle, href, Icon }) => (
                 <StaggerItem key={label} as="li">
                   <a
@@ -53,9 +53,9 @@ export function JoinUs() {
                     <span className="grid size-10 place-items-center rounded-xl bg-white text-ink">
                       <Icon className="size-[18px]" />
                     </span>
-                    <span className="flex-1 leading-tight">
+                    <span className="min-w-0 flex-1 leading-tight">
                       <span className="block text-sm font-semibold">{label}</span>
-                      <span className="block text-xs opacity-60" dir="ltr">
+                      <span className="block truncate text-xs opacity-60" dir="ltr">
                         {handle}
                       </span>
                     </span>

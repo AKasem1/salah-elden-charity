@@ -185,7 +185,7 @@ export function DonateForm() {
                 }}
                 aria-invalid={Boolean(errors.amount)}
                 aria-describedby={errors.amount ? "amount-error" : undefined}
-                className="h-full flex-1 bg-transparent text-lg font-semibold outline-none placeholder:text-base placeholder:font-normal placeholder:text-muted"
+                className="h-full min-w-0 flex-1 bg-transparent text-lg font-semibold outline-none placeholder:text-base placeholder:font-normal placeholder:text-muted"
               />
               <span className="text-sm text-muted">جنيه</span>
             </div>
@@ -272,10 +272,10 @@ function Step({ number, title, note, children }: { number: number; title: string
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease, delay: 0.15 + number * 0.1 }}
-      className="rounded-[2rem] bg-white p-5 ring-1 ring-line md:p-6"
+      className="min-w-0 rounded-[2rem] bg-white p-5 ring-1 ring-line md:p-6"
     >
       <legend className="sr-only">{title}</legend>
-      <div className="mb-4 flex items-center gap-3">
+      <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1">
         <span className="grid size-8 place-items-center rounded-full bg-brand-soft font-display text-sm font-bold text-brand-deep">
           {number}
         </span>
