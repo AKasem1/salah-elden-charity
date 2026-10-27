@@ -10,9 +10,11 @@ export const siteConfig = {
     address: "الفيوم - شارع المرور - بجوار معهد الصفوة الأزهري - برج قصر الأطباء - الدور الرابع",
     phones: ["01011047558", "01011047559"],
     email: "info@salaheldien.com",
+    /** International format, used for wa.me links. */
+    whatsapp: "201011047558",
   },
   links: {
-    donate: "https://salaheldien.com/donate/",
+    donate: "/donate",
     volunteer: "https://salaheldien.com/volunteer/",
     news: "https://salaheldien.com/news/",
     contact: "https://salaheldien.com/contact/",
@@ -26,10 +28,10 @@ export const siteConfig = {
 } as const;
 
 export const mainNav = [
-  { label: "الرئيسية", href: "#top" },
-  { label: "عن الجمعية", href: "#about" },
-  { label: "مجالات العطاء", href: "#causes" },
-  { label: "مشاريعنا", href: "#projects" },
-  { label: "الأخبار", href: "#news" },
+  { label: "الرئيسية", href: "/" },
+  { label: "عن الجمعية", href: "/#about" },
+  { label: "مجالات العطاء", href: "/#causes" },
+  { label: "مشاريعنا", href: "/#projects" },
+  { label: "الأخبار", href: "/#news" },
   { label: "تواصل معنا", href: "#contact" },
 ] as const;

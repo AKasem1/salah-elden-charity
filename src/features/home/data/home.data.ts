@@ -36,6 +36,7 @@ export const causes = [
     description:
       "عمليات جراحية وعلاج كيماوي وإشعاعي وأجهزة تعويضية للمرضى غير القادرين، بالتعاون مع مستشفى الشفاء وشركاء الخير.",
     stat: { value: 3070, label: "عملية جراحية" },
+    donateCause: "patient",
     image: "/images/gallery/hospital-or.jpg",
     Icon: StethoscopeIcon as Icon,
   },
@@ -44,6 +45,7 @@ export const causes = [
     description:
       "كرتونة غذائية ووجبات مطهية للأسر الأولى بالرعاية طوال العام، وموائد الرحمن ولحوم الأضاحي في المواسم.",
     stat: { value: 250000, label: "وجبة سنويًا" },
+    donateCause: "general",
     image: "/images/hero/image2.webp",
     Icon: BowlIcon as Icon,
   },
@@ -52,6 +54,7 @@ export const causes = [
     description:
       "تجهيز بنات الأسر الأولى بالرعاية بالأجهزة والمستلزمات لبداية حياة كريمة، وإغاثة عاجلة للأسر المتضررة.",
     stat: { value: 5000, label: "عروسة" },
+    donateCause: "general",
     image: "/images/news/blog-1.webp",
     Icon: GiftIcon as Icon,
   },
@@ -60,6 +63,7 @@ export const causes = [
     description:
       "مستلزمات دراسية للطلاب، ودورات تدريبية للشباب والسيدات تفتح لهم أبواب العمل والمشروعات الصغيرة.",
     stat: { value: 219, label: "شاب تم تدريبه" },
+    donateCause: "student",
     image: "/images/gallery/training.jpg",
     Icon: BookIcon as Icon,
   },

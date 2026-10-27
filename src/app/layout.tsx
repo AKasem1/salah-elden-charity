@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Alexandria, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Footer } from "@/shared/components/layout/Footer";
+import { Header } from "@/shared/components/layout/Header";
 import { siteConfig } from "@/shared/config/site";
 import "./globals.css";
 
@@ -36,10 +38,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ar"
+      data-scroll-behavior="smooth"
       dir="rtl"
       className={`${alexandria.variable} ${plexArabic.variable} h-full antialiased`}
     >
-      <body className="min-h-full overflow-x-clip font-sans">{children}</body>
+      <body className="min-h-full overflow-x-clip font-sans">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

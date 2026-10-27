@@ -1,20 +1,33 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState, type MouseEvent } from "react";
 import { mainNav, siteConfig } from "@/shared/config/site";
 import { cn } from "@/shared/lib/cn";
 import { ButtonLink } from "@/shared/components/ui/Button";
-import { CloseIcon, MenuIcon } from "@/shared/components/icons";
+import { CloseIcon, HeartIcon, MenuIcon } from "@/shared/components/icons";
 
 export function Header() {
   const { scrollY, scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  // Only the home page has a dark hero behind the header; elsewhere keep it solid.
+  const solid = scrolled || pathname !== "/";
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
+
+  // Already on the home page: links to "/" should just return to the top.
+  function handleHomeClick(event: MouseEvent<HTMLAnchorElement>) {
+    setOpen(false);
+    if (pathname !== "/") return;
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <>
@@ -31,40 +44,50 @@ export function Header() {
         <div
           className={cn(
             "mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full px-3 py-2.5 transition-all duration-500 md:px-5",
-            scrolled ? "bg-white/80 shadow-[0_10px_40px_-15px_rgb(29_27_76/0.25)] ring-1 ring-line backdrop-blur-xl" : "bg-transparent",
+            solid ? "bg-white/80 shadow-[0_10px_40px_-15px_rgb(29_27_76/0.25)] ring-1 ring-line backdrop-blur-xl" : "bg-transparent",
           )}
         >
-          <a href="#top" className="flex items-center gap-3" aria-label={siteConfig.name}>
+          <Link href="/" onClick={handleHomeClick} className="flex items-center gap-3" aria-label={siteConfig.name}>
             <span className="grid size-14 place-items-center rounded-full bg-white ring-1 ring-line md:size-[4.25rem]">
               <Image src="/images/logo.webp" alt="" width={100} height={86} className="h-10 w-auto md:h-12" priority />
             </span>
-            <span className={cn("hidden leading-tight transition-colors duration-500 sm:block", !scrolled && "text-white")}>
+            <span className={cn("hidden leading-tight transition-colors duration-500 sm:block", !solid && "text-white")}>
               <span className="block font-display text-base font-bold md:text-lg">{siteConfig.shortName}</span>
-              <span className={cn("block text-xs md:text-sm", scrolled ? "text-muted" : "text-white/70")}>{siteConfig.tagline}</span>
+              <span className={cn("block text-xs md:text-sm", solid ? "text-muted" : "text-white/70")}>{siteConfig.tagline}</span>
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden rounded-full bg-white/70 p-1 ring-1 ring-line backdrop-blur-md lg:block">
             <ul className="flex items-center gap-1">
-              {mainNav.map((item, i) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-2 rounded-full px-4 py-2.5 text-[0.95rem] font-medium transition-colors hover:bg-cream",
-                      i === 0 && "bg-cream",
-                    )}
-                  >
-                    {i === 0 ? <span className="size-1.5 rounded-full bg-brand" /> : null}
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {mainNav.map((item) => {
+                const active = item.href === pathname;
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={item.href === "/" ? handleHomeClick : undefined}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "flex items-center gap-2 rounded-full px-4 py-2.5 text-[0.95rem] font-medium transition-colors hover:bg-cream",
+                        active && "bg-cream",
+                      )}
+                    >
+                      {active ? <HeartIcon className="size-3.5 fill-brand text-brand" /> : null}
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
           <div className="flex items-center gap-2">
-            <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" size="md">
+            <ButtonLink
+              href={siteConfig.links.donate}
+              size="md"
+              aria-current={pathname === siteConfig.links.donate ? "page" : undefined}
+              className="max-sm:h-11 max-sm:ps-4 max-sm:text-sm"
+            >
               تبرع الآن
             </ButtonLink>
             <button
@@ -98,7 +121,7 @@ export function Header() {
                   >
                     <a
                       href={item.href}
-                      onClick={() => setOpen(false)}
+                      onClick={item.href === "/" ? handleHomeClick : () => setOpen(false)}
                       className="block rounded-2xl px-4 py-3 font-medium hover:bg-cream"
                     >
                       {item.label}

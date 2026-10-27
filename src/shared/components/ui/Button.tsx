@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/shared/lib/cn";
 import { ArrowUpLeftIcon } from "@/shared/components/icons";
@@ -37,10 +38,14 @@ export function ButtonLink({
   icon = true,
   className,
   children,
+  href = "",
   ...props
 }: ButtonLinkProps) {
+  // Internal routes go through next/link for client-side navigation.
+  const Anchor = href.startsWith("/") ? Link : "a";
   return (
-    <a
+    <Anchor
+      href={href}
       className={cn(
         "group inline-flex shrink-0 items-center justify-center rounded-full font-semibold transition-all duration-300",
         variants[variant],
@@ -62,6 +67,6 @@ export function ButtonLink({
           <ArrowUpLeftIcon className="size-1/2" />
         </span>
       ) : null}
-    </a>
+    </Anchor>
   );
 }

@@ -1,5 +1,3 @@
-import { Footer } from "@/shared/components/layout/Footer";
-import { Header } from "@/shared/components/layout/Header";
 import { About } from "./About";
 import { Achievements } from "./Achievements";
 import { Causes } from "./Causes";
@@ -13,21 +11,17 @@ import { VisionMission } from "./VisionMission";
 
 export function HomePage() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Causes />
-        <ImpactStats />
-        <Projects />
-        <Achievements />
-        <VisionMission />
-        <News />
-        <Partners />
-        <JoinUs />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Causes />
+      <ImpactStats />
+      <Projects />
+      <Achievements />
+      <VisionMission />
+      <News />
+      <Partners />
+      <JoinUs />
+    </main>
   );
 }

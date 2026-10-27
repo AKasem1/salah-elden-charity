@@ -24,7 +24,7 @@ export function Causes() {
             </p>
           </Reveal>
           <Reveal delay={0.3} className="mt-8">
-            <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" variant="outline">
+            <ButtonLink href={siteConfig.links.donate} variant="outline">
               اختر مجال تبرعك
             </ButtonLink>
           </Reveal>

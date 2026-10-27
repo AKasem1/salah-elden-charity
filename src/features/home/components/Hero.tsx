@@ -80,7 +80,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4, ease }}
               className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-xs font-bold text-ink"
             >
-              <span className="size-2 rounded-full bg-brand" />
+              <HeartIcon className="size-3.5 fill-brand text-brand" />
               منذ {siteConfig.founded} · {siteConfig.tagline}
             </motion.span>
 
@@ -122,7 +122,7 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 1.4, ease }}
               className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8"
             >
-              <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" size="lg">
+              <ButtonLink href={siteConfig.links.donate} size="lg">
                 تبرع الآن
               </ButtonLink>
               <a
@@ -171,7 +171,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 1.6 + i * 0.15, ease }}
                 className="inline-flex items-center gap-2.5 rounded-full bg-ink/75 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-ink/30 ring-1 ring-white/25 backdrop-blur-xl"
               >
-                <span className="size-2.5 rounded-full bg-brand shadow-[0_0_12px] shadow-brand" />
+                <HeartIcon className="size-4 fill-brand text-brand drop-shadow-[0_0_6px_rgb(61_170_72/0.9)]" />
                 {item}
               </motion.span>
             ))}
@@ -199,7 +199,7 @@ export function Hero() {
               <p className="mt-2 text-sm leading-7 text-muted">
                 تبرعك يصل مباشرة إلى برامج الإطعام والعلاج والكفالة في قرى ومدن الفيوم.
               </p>
-              <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" size="sm" className="mt-5">
+              <ButtonLink href={siteConfig.links.donate} size="sm" className="mt-5">
                 تبرع الآن
               </ButtonLink>
             </motion.div>

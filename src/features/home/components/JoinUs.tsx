@@ -32,7 +32,7 @@ export function JoinUs() {
               <ButtonLink href={siteConfig.links.volunteer} target="_blank" rel="noreferrer" size="lg">
                 سجّل كمتطوع
               </ButtonLink>
-              <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" size="lg" variant="ghost">
+              <ButtonLink href={siteConfig.links.donate} size="lg" variant="ghost">
                 تبرع معنا
               </ButtonLink>
             </div>

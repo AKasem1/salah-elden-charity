@@ -15,6 +15,7 @@ type CauseCardProps = {
     description: string;
     image: string;
     stat: { value: number; label: string };
+    donateCause: string;
   };
   icon: ReactNode;
   index: number;
@@ -45,7 +46,7 @@ export function CauseCard({ cause, icon, index }: CauseCardProps) {
             <Counter value={cause.stat.value} suffix="+" className="font-display text-2xl font-bold text-ink" />
             <p className="text-xs text-muted">{cause.stat.label}</p>
           </div>
-          <ButtonLink href={siteConfig.links.donate} target="_blank" rel="noreferrer" size="sm">
+          <ButtonLink href={`${siteConfig.links.donate}?cause=${cause.donateCause}`} size="sm">
             تبرع الآن
           </ButtonLink>
         </div>

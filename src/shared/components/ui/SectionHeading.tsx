@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/shared/lib/cn";
+import { HeartIcon } from "@/shared/components/icons";
 import { Reveal } from "./Reveal";
 
 type SectionHeadingProps = {
@@ -63,10 +64,7 @@ export function Eyebrow({ children, tone = "light" }: { children: ReactNode; ton
         tone === "dark" ? "bg-white/10 text-white ring-1 ring-white/15" : "bg-white text-ink ring-1 ring-line",
       )}
     >
-      <span className="relative flex size-2">
-        <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand opacity-60" />
-        <span className="relative inline-flex size-2 rounded-full bg-brand" />
-      </span>
+      <HeartIcon className="size-3.5 animate-pulse fill-brand text-brand" />
       {children}
     </span>
   );
