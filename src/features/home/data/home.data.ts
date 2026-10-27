@@ -151,7 +151,7 @@ export const news = [
     title: "احتفالية يوم اليتيم 2026",
     excerpt: "نظّمت الجمعية احتفالية خاصة بيوم اليتيم في أجواء من البهجة لإدخال السرور إلى قلوب الأطفال.",
     date: "13 أبريل 2026",
-    image: "/images/gallery/orphan-day.png",
+    image: "/images/gallery/orphan-day.jpg",
     href: "https://salaheldien.com/news/",
     category: "فعاليات",
   },
